@@ -1,0 +1,18 @@
+kind: ReplicationController
+metadata:
+  name: jenkins
+spec:
+  replicas: 3
+  selector:
+    app: jenkins
+  template:
+    metadata:
+      name: jenkins
+      labels:
+        app: jenkins
+    spec:
+      containers:
+      - name: jenkins
+        image: kammana/jenkins:v1
+        ports:
+        - containerPort: 7070
