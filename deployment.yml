@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  labels:
+    app: software #name to tie the pods togther#
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: software #name to tie the pods togther#
+  template:
+    metadata:
+      labels:
+        app: software #name to tie the pods togther#
+    spec:
+      containers:
+      - name: jenkins
+        image: jenkins
+        ports:
+        - containerPort: 8080
